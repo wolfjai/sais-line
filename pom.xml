@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.wf</groupId>
   <artifactId>line</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>line Maven Webapp</name>
   <url>http://maven.apache.org</url>
@@ -18,14 +18,13 @@
 		<groupId>com.linecorp.bot</groupId>
 		<artifactId>line-bot-api-client</artifactId>
 		<version>3.3.0</version>
-		<scope>compile</scope>
+		
 	</dependency>
 	
 	<dependency>
-		<groupId>com.linecorp.bot</groupId>
-		<artifactId>line-bot-model</artifactId>
-		<version>3.3.0</version>
-		<scope>runtime</scope>
+	    <groupId>com.linecorp.bot</groupId>
+	    <artifactId>line-bot-model</artifactId>
+	    <version>3.3.0</version>
 	</dependency>
 	
     <dependency>
@@ -51,45 +50,36 @@
 	    <version>1.19.0</version>
 	    <scope>test</scope>
 	</dependency>
-
-	<dependency>
-	    <groupId>com.squareup.okhttp3</groupId>
-	    <artifactId>mockwebserver</artifactId>
-	    <version>4.2.2</version>
-	    <scope>test</scope>
-	</dependency>
+	
+	
+	
+	<!-- begin log4j -->
+	  <dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-api</artifactId>
+	    <version>2.13.0</version>
+	  </dependency>
+	  <dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>2.13.0</version>
+	  </dependency>
+	<!-- end log4j -->  
+	
 	<!-- spring framework -->
 	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-context</artifactId>
-	    <version>5.2.0.RELEASE</version>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.2.2.RELEASE</version>
+	    <type>pom</type>
 	</dependency>
 	
 	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-web</artifactId>
-	    <version>5.2.0.RELEASE</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-aop</artifactId>
-	    <version>5.2.0.RELEASE</version>
-	</dependency>
-  	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-webmvc</artifactId>
-	    <version>5.2.0.RELEASE</version>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	    <version>2.2.2.RELEASE</version>
 	</dependency>
 
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-jdbc</artifactId>
-	    <version>5.2.0.RELEASE</version>
-	</dependency>
-	
-	
-	
-	
 	<dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-test</artifactId>
@@ -107,13 +97,33 @@
 	    <artifactId>snakeyaml</artifactId>
 	    <version>1.25</version>
 	</dependency>
-
+	<!-- begin jackson -->
+    <dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-core</artifactId>
+	    <version>2.10.1</version>
+	</dependency>
     <dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
 	    <version>2.10.1</version>
-	</dependency>  
-    
+	</dependency>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-annotations</artifactId>
+	    <version>2.10.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.datatype</groupId>
+	    <artifactId>jackson-datatype-jsr310</artifactId>
+	    <version>2.10.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.fasterxml.jackson.module</groupId>
+	    <artifactId>jackson-module-parameter-names</artifactId>
+	    <version>2.10.1</version>
+	</dependency>
+	<!-- end jackson -->	
     <dependency>
 	    <groupId>com.google.guava</groupId>
 	    <artifactId>guava</artifactId>
@@ -122,10 +132,10 @@
     
     
     <dependency>
-    		<groupId>org.projectlombok</groupId>
-    		<artifactId>lombok</artifactId>
-    		<version>0.10.1</version>
-    		<scope>provided</scope>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.10</version>
+	    <scope>provided</scope>
 	</dependency>
 	
 	<dependency>

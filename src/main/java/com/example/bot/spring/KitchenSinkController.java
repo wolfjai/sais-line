@@ -35,6 +35,9 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.logging.Log;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -100,6 +103,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @LineMessageHandler
 public class KitchenSinkController {
+	 
+	private static final Logger log = LogManager.getLogger(KitchenSinkController.class);
+	
     @Autowired
     private LineMessagingClient lineMessagingClient;
 
@@ -208,6 +214,9 @@ public class KitchenSinkController {
     @EventMapping
     public void handleUnfollowEvent(UnfollowEvent event) {
         log.info("unfollowed this bot: {}", event);
+    	
+    	
+    	
     }
 
     @EventMapping
@@ -586,7 +595,9 @@ public class KitchenSinkController {
             throw new UncheckedIOException(e);
         }
     }
-
+    
+    
+    
     private static DownloadedContent createTempFile(String ext) {
         String fileName = LocalDateTime.now().toString() + '-' + UUID.randomUUID() + '.' + ext;
         Path tempFile = KitchenSinkApplication.downloadedContentDir.resolve(fileName);
@@ -595,10 +606,12 @@ public class KitchenSinkController {
                 tempFile,
                 createUri("/downloaded/" + tempFile.getFileName()));
     }
-
+    
+   
     @Value
     private static class DownloadedContent {
         Path path;
         URI uri;
     }
+   
 }

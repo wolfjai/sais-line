@@ -1,2 +1,1 @@
-//web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
-web: java $JAVA_OPTS -jar sample-spring-boot-kitchensink/build/libs/sample-spring-boot-kitchensink-*.jar --server.port=$PORT
+web: java -Dserver.port=$PORT $JAVA_OPTS -cp target/classes:target/dependency/* com.example.bot.spring.KitchenSinkApplication.MainClass
